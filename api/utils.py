@@ -28,11 +28,12 @@ def create_directory():
     links = get_all_animes()
 
     with click.progressbar(links, label='Getting and save animes') as bar, transaction.atomic():
+        saved = list(Anime.objects.all().values_list('animeflv_url', flat=True))
         for l in bar:
             try:
-                # if l not in Anime.objects.all().values_list('animeflv_url', flat=True):
-                anime = get_anime(l)
-                Anime.create_or_update(anime)
+                if l not in saved:
+                    anime = get_anime(l)
+                    Anime.create(anime)
             except Exception as e:
                 click.secho(
                     f'Error saving anime "{e}": {l}', fg='red', err=e)

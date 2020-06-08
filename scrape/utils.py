@@ -93,7 +93,7 @@ def remove_key(dict_obj, key):
 
 def get_image(url):
     response = make_request(url)
-    if response.status_code is not 200:
+    if response.status_code != 200:
         return None
     try:
         img = Image.open(BytesIO(response.content))
