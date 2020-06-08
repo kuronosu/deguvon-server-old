@@ -1,0 +1,20 @@
+# Python
+*/venv/
+ddbb.sqlite3
+ddbb.sqlite3-journal
+db.sqlite3
+*.pyc
+__pycache__/
+animes.txt
+scaracter.txt
+cookies
+directory.json
+.env
+
+api/images/
+geckodriver.log
+celerybeat*
+media/
+
+.vscode/
+app/android/gradle.properties
